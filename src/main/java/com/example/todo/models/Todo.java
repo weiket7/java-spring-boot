@@ -1,17 +1,13 @@
 package com.example.todo.models;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Todo {
-    private String name;
-
-    public Todo(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+    private Long id;
+    private Long userId;
+    private String title;
+    private Boolean completed;
 }
