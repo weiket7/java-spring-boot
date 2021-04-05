@@ -1,6 +1,8 @@
 package com.example.todo.exceptions;
 
-public class ApiException extends Throwable {
-    public ApiException() {
+public class ApiException extends RuntimeException {
+    public ApiException(String message) {
+        super(message);
     }
+
 }

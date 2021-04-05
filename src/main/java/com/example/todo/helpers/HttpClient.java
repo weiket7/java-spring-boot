@@ -30,10 +30,10 @@ public class HttpClient {
         Call call = client.newCall(request);
         Response response = call.execute();
         if(response.isSuccessful() == false) {
-            throw new ApiException();
+            throw new ApiException(String.format("HttpClient.Get: Response not successful, url=%s", url));
         }
         if(response.body() == null) {
-            throw new ApiException();
+            throw new ApiException(String.format("HttpClient.Get: Response body is null, url=%s", url));
         }
         return jsonHelper.Serialize(response.body().string(), target);
 
