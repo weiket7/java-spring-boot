@@ -13,14 +13,20 @@ import java.util.Optional;
 @Service
 @Primary
 public class TodoService implements ITodoService {
+
+    private final TodoRepository todoRepository;
+
     @Autowired
-    private TodoRepository todoRepository;
+    public TodoService(TodoRepository todoRepository) {
+        this.todoRepository = todoRepository;
+    }
 
     public List<TodoEntity> list() {
         return todoRepository.findAll();
     }
 
     public void create(CreateTodoRequest request) {
+        request.validate();
         TodoEntity todo = new TodoEntity(request.getName());
         todoRepository.save(todo);
     }
