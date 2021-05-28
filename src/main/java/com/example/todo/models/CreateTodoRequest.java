@@ -1,5 +1,6 @@
 package com.example.todo.models;
 
+import com.example.todo.exceptions.ApiException;
 import com.example.todo.exceptions.TodoException;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,7 +17,7 @@ public class CreateTodoRequest {
     @SneakyThrows
     public void validate() {
         if(ObjectUtils.isEmpty(name)) {
-            throw new TodoException("CreateTodoRequest.Validate - Name is empty");
+            throw new ApiException("CreateTodoRequest.Validate - Name is empty");
         }
     }
 }
